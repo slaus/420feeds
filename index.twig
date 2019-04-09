@@ -1,0 +1,28 @@
+<div class="my-slider">
+    <div class="control-btns">
+        <ul><li><strong>420 Job Spotlight</strong></li>
+            <li><a href="javascript:void(0)" class="prev"></a></li>
+            <li><a href="javascript:void(0)" class="next"></a></li>
+        </ul>
+    </div>
+    <div class="content-wrapper">
+        <ul>
+        {% for job in jobs %}
+            <li>
+                <div class="job-spotlight">
+                    <a href="https://420jobsearch.com{{ job.slug }}"><h4>{{ job.title }}<span class="job-type part-time">{{ job.type }}</span></h4></a>
+                    <span><a target="_blank" href="https://420jobsearch.com/jobs-state-{{ job.loc_statecode }}">
+                        <i class="marker"></i> {{ job.loc_state }}</a>
+                    </span>
+                    <span><i class="user"></i>{{ job.company }}</span>
+                    <p>{{ job.detail|striptags }} ... </p>
+                    <a href="https://420jobsearch.com{{ job.slug }}" class="button">Apply For This Job</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script src="js/script.js"></script>
